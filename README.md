@@ -46,10 +46,10 @@ Follow these steps to set up the project on your local machine.
 
 ## Usage
 
-To train the model run:
+To train the model use: `mlagents-learn --run-id=YourID`
 
-`mlagents-learn --run-id=1`
+Add `--force` to override previous training.
 
-(Make sure you choose an ID.)
+Use `mlagents-learn --initialize-from=YourID` to continue from previous training
 
-Use `--force` to override previous training.
+Use `mlagents-learn --help` to see all other commands
