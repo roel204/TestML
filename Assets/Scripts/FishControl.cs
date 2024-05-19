@@ -3,11 +3,11 @@ using UnityEngine;
 public class FishControl : MonoBehaviour
 {
     // Settings that are changeable for each fish
-    public float minMoveSpeed = 0.5f;
+    public float minMoveSpeed = 1f;
     public float maxMoveSpeed = 4.0f;
-    public float turnSpeed = 150f;
+    public float turnSpeed = 100f;
 
-    private float currentSpeed;
+    private float currentSpeed = 1f;
 
     // Map bounds
     private Vector2 minBounds = new Vector2(-16f, -9f);
@@ -23,13 +23,23 @@ public class FishControl : MonoBehaviour
     public void Move(float rotationInput, float speedInput)
     {
         float rotation = Mathf.Clamp(rotationInput, -1f, 1f);
-        float targetSpeed = Mathf.Clamp(speedInput, minMoveSpeed, maxMoveSpeed);
 
-        // Smoothly interpolate the speed
-        currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.deltaTime * 2f);
+        // Separate interpolation for positive and negative values of speedInput
+        if (speedInput >= 0f)
+        {
+            // Smoothly increase speed towards maxMoveSpeed for positive values
+            currentSpeed = Mathf.Lerp(currentSpeed, maxMoveSpeed, Mathf.Abs(speedInput) * Time.deltaTime * 2f);
+        }
+        else
+        {
+            // Smoothly decrease speed towards minMoveSpeed for negative values
+            currentSpeed = Mathf.Lerp(currentSpeed, minMoveSpeed, Mathf.Abs(speedInput) * Time.deltaTime * 2f);
+        }
 
         // Apply smooth rotation
         transform.Rotate(Vector3.forward, rotation * turnSpeed * Time.deltaTime);
+
+        Debug.Log("CurrentSpeed:" + currentSpeed);
 
         // Move forward
         transform.position += transform.right * currentSpeed * Time.deltaTime;
@@ -43,6 +53,7 @@ public class FishControl : MonoBehaviour
         // Adjust sprite orientation to always appear upright
         AdjustSpriteOrientation();
     }
+
 
     // Adjust the rotation of the sprite so the fish always looks upright
     private void AdjustSpriteOrientation()

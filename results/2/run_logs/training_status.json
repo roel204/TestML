@@ -2,22 +2,22 @@
     "MoveFish": {
         "checkpoints": [
             {
-                "steps": 21920,
-                "file_path": "results\\2\\MoveFish\\MoveFish-21920.onnx",
+                "steps": 704,
+                "file_path": "results\\2\\MoveFish\\MoveFish-704.onnx",
                 "reward": null,
-                "creation_time": 1716126447.1652439,
+                "creation_time": 1716128950.542451,
                 "auxillary_file_paths": [
-                    "results\\2\\MoveFish\\MoveFish-21920.pt"
+                    "results\\2\\MoveFish\\MoveFish-704.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 21920,
+            "steps": 704,
             "file_path": "results\\2\\MoveFish.onnx",
             "reward": null,
-            "creation_time": 1716126447.1652439,
+            "creation_time": 1716128950.542451,
             "auxillary_file_paths": [
-                "results\\2\\MoveFish\\MoveFish-21920.pt"
+                "results\\2\\MoveFish\\MoveFish-704.pt"
             ]
         }
     },

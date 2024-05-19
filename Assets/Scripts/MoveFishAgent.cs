@@ -9,7 +9,7 @@ public class MoveFishAgent : Agent
     [SerializeField] private FishControl fishControl;
 
     // Rewards and Penalties
-    private float borderPenalty = -0.3f;
+    private float borderPenalty = -0.1f;
     private float proximityReward = 0.01f;
     //private float contactReward = 1f;
 
@@ -49,6 +49,8 @@ public class MoveFishAgent : Agent
         // The inputs from the AI
         float rotationInput = actions.ContinuousActions[0];
         float speedInput = actions.ContinuousActions[1];
+        Debug.Log("AI Rotation:" + rotationInput);
+        Debug.Log("AI Speed:" + speedInput);
 
         // Move the fish using the FishControl script
         fishControl.Move(rotationInput, speedInput);
@@ -63,8 +65,15 @@ public class MoveFishAgent : Agent
         float distanceToTarget = Vector3.Distance(fishControl.transform.position, targetTransform.position);
 
         // Add a small reward based on the distance to the target
+        Debug.Log("Distance Reward:" + proximityReward / distanceToTarget);
         AddReward(proximityReward / distanceToTarget);
         cumulativeReward += proximityReward / distanceToTarget;
+
+        // Add reward for maintaining a horizontal orientation
+        float horizontalReward = Mathf.Abs(Mathf.Cos(fishControl.transform.eulerAngles.z * Mathf.Deg2Rad));
+        Debug.Log("Rotation Reward:" + horizontalReward * 0.01f);
+        AddReward(horizontalReward * 0.01f); // Adjust reward scale as needed
+        cumulativeReward += horizontalReward * 0.01f;
 
         // Add reward for contacting the target
         //if (distanceToTarget < 0.5f)
@@ -76,6 +85,7 @@ public class MoveFishAgent : Agent
         // Check if the fish is out of bounds and apply penalty
         if (fishControl.IsOutOfBounds())
         {
+            Debug.Log("Border Penalty:" + borderPenalty);
             AddReward(borderPenalty);
             cumulativeReward += borderPenalty;
         }
@@ -84,7 +94,17 @@ public class MoveFishAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
-        continuousActions[0] = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1f, 1f); // Rotation control
-        continuousActions[1] = Mathf.Clamp(Input.GetAxisRaw("Vertical"), fishControl.minMoveSpeed, fishControl.maxMoveSpeed); // Speed control
+
+        // Get input from the player
+        float rotationInput = Input.GetAxisRaw("Horizontal");
+        float speedInput = Input.GetAxisRaw("Vertical");
+
+        // Clamp the input values
+        float clampedRotation = Mathf.Clamp(-rotationInput, -1f, 1f);
+        float clampedSpeed = Mathf.Clamp(speedInput, -1f, 1f);
+
+        // Assign the actions
+        continuousActions[0] = clampedRotation; // Rotation control
+        continuousActions[1] = clampedSpeed; // Speed control
     }
 }
