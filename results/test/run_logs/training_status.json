@@ -1,4 +1,26 @@
 {
+    "MoveFish": {
+        "checkpoints": [
+            {
+                "steps": 388960,
+                "file_path": "results\\test\\MoveFish\\MoveFish-388960.onnx",
+                "reward": null,
+                "creation_time": 1716137074.7305646,
+                "auxillary_file_paths": [
+                    "results\\test\\MoveFish\\MoveFish-388960.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 388960,
+            "file_path": "results\\test\\MoveFish.onnx",
+            "reward": null,
+            "creation_time": 1716137074.7305646,
+            "auxillary_file_paths": [
+                "results\\test\\MoveFish\\MoveFish-388960.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.29.0",
