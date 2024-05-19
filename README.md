@@ -52,6 +52,6 @@ To train the model use: `mlagents-learn --run-id=YourID`
 
 Add `--force` to override previous training.
 
-Use `mlagents-learn --initialize-from=YourID` to continue from previous training
+Add `--resume` to continue from previous training
 
 Use `mlagents-learn --help` to see all other commands
