@@ -8,8 +8,8 @@ Follow these steps to set up the project on your local machine.
 
 ### Prerequisites
 
-- [Unity](https://unity.com/) (Ensure you have the version that matches the project)
-- [Python](https://www.python.org/downloads/) (Ensure you have Python 3.6 or newer)
+- [Unity](https://unity.com/) Use version: 2023.1.20f1
+- [Python](https://www.python.org/downloads/release/python-379/) Use version: 3.7.9 | Make sure you get X86-64 for windows
 - [Git](https://git-scm.com/)
 
 ### Installation
