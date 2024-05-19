@@ -46,6 +46,8 @@ Follow these steps to set up the project on your local machine.
 
 ## Usage
 
+Make sure you're inside the venv!
+
 To train the model use: `mlagents-learn --run-id=YourID`
 
 Add `--force` to override previous training.
