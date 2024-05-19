@@ -1,0 +1,65 @@
+{
+    "MoveFish": {
+        "checkpoints": [
+            {
+                "steps": 87680,
+                "file_path": "results\\test2\\MoveFish\\MoveFish-87680.onnx",
+                "reward": null,
+                "creation_time": 1716140845.586353,
+                "auxillary_file_paths": [
+                    "results\\test2\\MoveFish\\MoveFish-87680.pt"
+                ]
+            },
+            {
+                "steps": 499976,
+                "file_path": "results\\test2\\MoveFish\\MoveFish-499976.onnx",
+                "reward": null,
+                "creation_time": 1716143600.8451443,
+                "auxillary_file_paths": [
+                    "results\\test2\\MoveFish\\MoveFish-499976.pt"
+                ]
+            },
+            {
+                "steps": 500360,
+                "file_path": "results\\test2\\MoveFish\\MoveFish-500360.onnx",
+                "reward": null,
+                "creation_time": 1716143600.9001675,
+                "auxillary_file_paths": [
+                    "results\\test2\\MoveFish\\MoveFish-500360.pt"
+                ]
+            },
+            {
+                "steps": 500360,
+                "file_path": "results\\test2\\MoveFish\\MoveFish-500360.onnx",
+                "reward": null,
+                "creation_time": 1716144685.08999,
+                "auxillary_file_paths": [
+                    "results\\test2\\MoveFish\\MoveFish-500360.pt"
+                ]
+            },
+            {
+                "steps": 500360,
+                "file_path": "results\\test2\\MoveFish\\MoveFish-500360.onnx",
+                "reward": null,
+                "creation_time": 1716144717.5730522,
+                "auxillary_file_paths": [
+                    "results\\test2\\MoveFish\\MoveFish-500360.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500360,
+            "file_path": "results\\test2\\MoveFish.onnx",
+            "reward": null,
+            "creation_time": 1716144717.5730522,
+            "auxillary_file_paths": [
+                "results\\test2\\MoveFish\\MoveFish-500360.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.0+cu110"
+    }
+}

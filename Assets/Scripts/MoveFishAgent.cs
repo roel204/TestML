@@ -10,7 +10,7 @@ public class MoveFishAgent : Agent
 
     // Rewards and Penalties
     private float borderPenalty = -0.1f;
-    private float proximityReward = 0.01f;
+    private float proximityReward = 0.05f;
     //private float contactReward = 1f;
 
     private float cumulativeReward = 0f;
@@ -71,7 +71,7 @@ public class MoveFishAgent : Agent
 
         // Add reward for maintaining a horizontal orientation
         float horizontalReward = Mathf.Abs(Mathf.Cos(fishControl.transform.eulerAngles.z * Mathf.Deg2Rad));
-        Debug.Log("Rotation Reward:" + horizontalReward * 0.01f);
+        Debug.Log("Rotation Reward:" + horizontalReward * 0.05f);
         AddReward(horizontalReward * 0.01f); // Adjust reward scale as needed
         cumulativeReward += horizontalReward * 0.01f;
 

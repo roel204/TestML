@@ -2,22 +2,58 @@
     "MoveFish": {
         "checkpoints": [
             {
-                "steps": 388960,
-                "file_path": "results\\test\\MoveFish\\MoveFish-388960.onnx",
+                "steps": 500480,
+                "file_path": "results\\test\\MoveFish\\MoveFish-500480.onnx",
                 "reward": null,
-                "creation_time": 1716137074.7305646,
+                "creation_time": 1716139617.549639,
                 "auxillary_file_paths": [
-                    "results\\test\\MoveFish\\MoveFish-388960.pt"
+                    "results\\test\\MoveFish\\MoveFish-500480.pt"
+                ]
+            },
+            {
+                "steps": 500480,
+                "file_path": "results\\test\\MoveFish\\MoveFish-500480.onnx",
+                "reward": null,
+                "creation_time": 1716139796.8494027,
+                "auxillary_file_paths": [
+                    "results\\test\\MoveFish\\MoveFish-500480.pt"
+                ]
+            },
+            {
+                "steps": 500480,
+                "file_path": "results\\test\\MoveFish\\MoveFish-500480.onnx",
+                "reward": null,
+                "creation_time": 1716139852.6716456,
+                "auxillary_file_paths": [
+                    "results\\test\\MoveFish\\MoveFish-500480.pt"
+                ]
+            },
+            {
+                "steps": 500480,
+                "file_path": "results\\test\\MoveFish\\MoveFish-500480.onnx",
+                "reward": null,
+                "creation_time": 1716139967.3835938,
+                "auxillary_file_paths": [
+                    "results\\test\\MoveFish\\MoveFish-500480.pt"
+                ]
+            },
+            {
+                "steps": 500480,
+                "file_path": "results\\test\\MoveFish\\MoveFish-500480.onnx",
+                "reward": null,
+                "creation_time": 1716140868.3120391,
+                "auxillary_file_paths": [
+                    "results\\test\\MoveFish\\MoveFish-500480.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 388960,
+            "steps": 500480,
             "file_path": "results\\test\\MoveFish.onnx",
             "reward": null,
-            "creation_time": 1716137074.7305646,
+            "creation_time": 1716140868.3120391,
             "auxillary_file_paths": [
-                "results\\test\\MoveFish\\MoveFish-388960.pt"
+                "results\\test\\MoveFish\\MoveFish-500480.pt"
             ]
         }
     },
