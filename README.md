@@ -28,11 +28,20 @@ Follow these steps to set up the project on your local machine.
 
    `venv\Scripts\activate`
 
-4. **Install Dependencies**
+4. **Update pip**
+   
+   `py -m pip install --upgrade pip`
 
-    `pip install -r requirements.txt`
+5. **Install Dependencies**
+   
+   ```
+   pip3 install torch==1.7.0 -f https://download.pytorch.org/whl/torch_stable.html`
+   pip3 install mlagents
+   pip install six
+   pip install importlib-metadata==4.8
+   ```
 
-5. **Open the Project in Unity**
+6. **Open the Project in Unity**
 
 
 ## Usage
