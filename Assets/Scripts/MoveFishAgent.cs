@@ -10,7 +10,7 @@ public class MoveFishAgent : Agent
 
     // Rewards and Penalties
     private readonly float borderPenalty = -0.1f;
-    private readonly float proximityReward = 0.05f;
+    private readonly float proximityReward = 0.1f;
     private readonly float horizontalMultiplier = 0.1f;
 
     private float cumulativeReward = 0f;
@@ -72,10 +72,13 @@ public class MoveFishAgent : Agent
         cumulativeReward += proximityReward / distanceToTarget;
 
         // Add reward for maintaining a horizontal orientation
-        float horizontalReward = Mathf.Abs(Mathf.Cos(fishControl.transform.eulerAngles.z * Mathf.Deg2Rad));
-        Debug.Log("Rotation Reward:" + horizontalReward * horizontalMultiplier);
-        AddReward(horizontalReward * horizontalMultiplier);
-        cumulativeReward += horizontalReward * horizontalMultiplier;
+        float rotation = Mathf.Abs(Mathf.Cos(fishControl.transform.eulerAngles.z * Mathf.Deg2Rad)); // 1:horizontal 0:vertical
+        float horizontalReward = (rotation - 0.5f) * horizontalMultiplier;
+
+        Debug.Log("Rotation Reward: " + horizontalReward);
+        AddReward(horizontalReward);
+        cumulativeReward += horizontalReward;
+
 
         // Check if the fish is out of bounds and apply penalty
         if (fishControl.IsOutOfBounds())
