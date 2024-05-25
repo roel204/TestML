@@ -10,8 +10,8 @@ public class FishControl : MonoBehaviour
     private float currentSpeed = 1f;
 
     // Map bounds
-    private Vector2 minBounds = new Vector2(-16f, -9f);
-    private Vector2 maxBounds = new Vector2(16f, 9f);
+    private Vector2 minBounds = new(-28f, -15f);
+    private Vector2 maxBounds = new(28f, 15f);
 
     private SpriteRenderer spriteRenderer;
 
@@ -24,7 +24,7 @@ public class FishControl : MonoBehaviour
     {
         float rotation = Mathf.Clamp(rotationInput, -1f, 1f);
 
-        // Separate interpolation for positive and negative values of speedInput
+        // Change speed depening on positive or negative number
         if (speedInput >= 0f)
         {
             // Smoothly increase speed towards maxMoveSpeed for positive values

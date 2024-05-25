@@ -9,26 +9,28 @@ public class MoveFishAgent : Agent
     [SerializeField] private FishControl fishControl;
 
     // Rewards and Penalties
-    private float borderPenalty = -0.1f;
-    private float proximityReward = 0.05f;
-    //private float contactReward = 1f;
+    private readonly float borderPenalty = -0.1f;
+    private readonly float proximityReward = 0.05f;
+    private readonly float horizontalMultiplier = 0.1f;
 
     private float cumulativeReward = 0f;
-    private Vector3 initialPosition;
+    private Vector3 initialPositionFish;
+    private float initialTargetX;
 
     public override void Initialize()
     {
         Time.timeScale = 1;
-        initialPosition = transform.position;
+        initialPositionFish = transform.position;
+        initialTargetX = targetTransform.position.x;
     }
 
     public override void OnEpisodeBegin()
     {
         // Reset positions with random values
-        transform.position = initialPosition + new Vector3(Random.Range(-4f, 4f), Random.Range(-4f, 4f), 0);
+        transform.position = initialPositionFish + new Vector3(Random.Range(-20f, 20f), Random.Range(-10f, 10f), 0);
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
 
-        //targetTransform.position = new Vector3(Random.Range(-8, 8), -8, 0);
+        targetTransform.position = new Vector3(Random.Range(-26, 26) + initialTargetX, -14, 0);
 
         // Show the total reward from the previous run
         Debug.Log("Episode ended. Total reward: " + cumulativeReward);
@@ -71,16 +73,9 @@ public class MoveFishAgent : Agent
 
         // Add reward for maintaining a horizontal orientation
         float horizontalReward = Mathf.Abs(Mathf.Cos(fishControl.transform.eulerAngles.z * Mathf.Deg2Rad));
-        Debug.Log("Rotation Reward:" + horizontalReward * 0.05f);
-        AddReward(horizontalReward * 0.01f); // Adjust reward scale as needed
-        cumulativeReward += horizontalReward * 0.01f;
-
-        // Add reward for contacting the target
-        //if (distanceToTarget < 0.5f)
-        //{
-        //    AddReward(contactReward);
-        //    cumulativeReward += contactReward;
-        //}
+        Debug.Log("Rotation Reward:" + horizontalReward * horizontalMultiplier);
+        AddReward(horizontalReward * horizontalMultiplier);
+        cumulativeReward += horizontalReward * horizontalMultiplier;
 
         // Check if the fish is out of bounds and apply penalty
         if (fishControl.IsOutOfBounds())
