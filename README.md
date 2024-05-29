@@ -35,7 +35,7 @@ Follow these steps to set up the project on your local machine.
 5. **Install Dependencies**
    
    ```
-   pip3 install torch==1.7.0 -f https://download.pytorch.org/whl/torch_stable.html`
+   pip3 install torch==1.7.0 -f https://download.pytorch.org/whl/torch_stable.html
    pip3 install mlagents
    pip install six
    pip install importlib-metadata==4.8
